@@ -27,3 +27,20 @@ var questions = [
 
 ];
 // Declared variables
+var score = 0; 
+var questionIndex = 0;
+
+//begin working code
+var timer = document.querySelector("#timer");
+var begin = document.querySelector("#begin");
+var questionnaire = document.querySelector("#questionnaire");
+var wrapper = document.querySelector("#wrapper");
+
+//seconds left is 15 seconds per question
+var seconds = 77;
+//holds interval time
+var interval = 0;
+//holds penalty time
+var penalty = 10
+//creates new element
+var ulCreate = document.createElement("ul");
