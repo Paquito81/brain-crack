@@ -44,3 +44,38 @@ var interval = 0;
 var penalty = 10
 //creates new element
 var ulCreate = document.createElement("ul");
+
+
+var startQuiz = function () {
+    var intervalID = setInterval(displayCountdown, 1000);
+
+    setTimeout (() => {
+        clearInterval(intervalID);
+
+
+
+    }, (1000 * (countdownValue + 1)));
+}
+
+
+
+function displayCountdown() {
+    if(countdownValue >= 0) {
+        countdown.innerHTML = countdownValue;
+        countdownValue--;
+    }else{
+        return 0;
+    }
+}
+
+var answerQuizHandler = function (e) {
+
+
+    var isCorrect = e.target.getAttribute();
+    if (isCorrect == "true") {
+
+    } else {
+        countdownValue -= 15;
+    }
+}
+
