@@ -3,12 +3,10 @@
 
 <head>
     <meta charset="UTF-8">
-    <!-- This is the first step in making the document responsive but scaling the items to screen -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Jamie Morris Homework-4 Code Quiz -->
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- This is the style links -->
-    <link rel="stylesheet" type="text/css" href="assets/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
     <!-- This is the title-->
     <title>Code Quiz</title>
@@ -16,18 +14,16 @@
 
 <body>
     <!-- This is a wrapper -->
-    <div id="wrapper">
+    <div class="wrapper" id="wrapper">å
         <!-- Div for timer -->
-        <div class="set-timer"></div>
+        <div class="set-timer" id="timer"></div>
         <!-- Div for quiz content -->
-        <div class="questionsDiv">
+        <div class="questions" id="questionnaire">
             <h1>Code Quiz</h1>
-            <p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect
-                answers
-                will penalize your score/time by ten seconds!</p>
+            <p>Try to answer the questions correcly for every wrong answer you will be penalized 10 seconds.</p>
             <ul class="choices" data-choices-id="1"></ul>
             <!-- Buttons -->
-            <button  class="btn start-quiz" data-time-id="startTime">Start Quiz</button>
+            <button  class="btn start-btn" data-time-id="begin">Start Quiz</button>
         </div>
 
     </div>

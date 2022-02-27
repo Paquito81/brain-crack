@@ -1,0 +1,16 @@
+h1 {
+    font-size:  50px;
+    color: coral; 
+}
+
+.start-btn {
+    font-size: 1.4rem;
+    padding: 6px 8px;
+    margin: 3px;
+    color:#fff;
+    background: coral; 
+}
+
+.btn:hover {
+    box-shadow: 0 2px var(--grey);
+}
