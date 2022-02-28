@@ -57,6 +57,26 @@ var startQuiz = function () {
     }, (1000 * (countdownValue + 1)));
 }
 
+//button to trigger timer
+begin.addEventListener("click", function () {
+    if (interval === 0) {
+        interval = setInterval(function () {
+            seconds--;
+            timer.textContent = "Time: " + seconds;
+
+            if (seconds <= 0) {
+                clearInterval(interval);
+                allDone();
+                timer.textContent = "Time's up!";
+            }
+
+        
+        }, 1000);
+    }
+    render(questionIndex);
+
+});
+
 
 
 function displayCountdown() {
