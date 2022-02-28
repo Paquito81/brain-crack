@@ -32,7 +32,7 @@ var questionIndex = 0;
 
 //begin working code
 var timer = document.querySelector("#timer");
-var begin = document.querySelector("#begin");
+var begin = document.querySelector("#beginTime");
 var questionnaire = document.querySelector("#questionnaire");
 var wrapper = document.querySelector("#wrapper");
 
@@ -48,6 +48,7 @@ var ulCreate = document.createElement("ul");
 
 //button to trigger timer
 begin.addEventListener("click", function () {
+    
     if (interval === 0) {
         interval = setInterval(function () {
             seconds--;
@@ -130,8 +131,69 @@ function allDone() {
 
     questionnaire.appendChild(h1);
 
-    //paragraph
+    var createP = document.createElement("p");
+    createP.setAttribute("id", "createP");
 
+    questionnaire.appendChild(createP);
+
+
+    if (seconds >= 0) {
+        var remainingTime = seconds;
+        var paragraph = document.createElement("p");
+        clearInterval(interval);
+        paragraph.textContent = "Your final score is:" + remainingTime;
+
+        questionnaire.appendChild(paragraph);
+
+    }
+
+    var labelCreated = document.createElement("label");
+    labelCreated.setAttribute("id", "labelCreated");
+    labelCreated.textContent = "Enter your initials:";
+
+    questionnaire.appendChild(labelCreated);
+
+     
+    var inputCreated = document.createElement("input");
+    inputCreated.setAttribute("type", "text");
+    inputCreated.setAttribute("id", "initials");
+    inputCreated.textContent = "";
+
+    questionnaire.appendChild(inputCreated);
+
+    var submitCreated = document.createElement("button");
+    submitCreated.setAttribute("type", "Submit");
+    submitCreated.setAttribute("id", "Submit");
+    submitCreated.textContent = "Submit";
+
+    questionnaire.appendChild(submitCreated);
+
+    submitCreated.addEventListener("click", function () {
+        var initials = inputCreated.value;
+
+        if (initials === null) {
+
+            console.log("No value entered!");
+
+        } else {
+            var scoreFinal = {
+                initials: initials,
+                score: remainingTime
+            }
+            console.log(scoreFinal);
+            var scores = localStorage.getItem("scores");
+            if (scores === null) {
+                scores = [];
+            } else {
+                scores = JSON.parse(scores);
+            }
+            scores.push(scoreFinal);
+            var scoreNew = JSON.parse.strintify(scores);
+            localStorage.setItem("scores". scoreNew);
+            //travels to final pagel
+            window.location.replace("");
+        }
+    });
 }
 //var startQuiz = function () {
   //  var intervalID = setInterval(displayCountdown, 1000);
