@@ -1,7 +1,7 @@
 var questions = [
     {
         title:"What is the correct Javascript syntax to write 'Hello World'?",
-        choices: ["System.out.printin('Hello World')", "printing ('Hello World')","document.write('Hello World'), respond.write('Hello World')"],
+        choices: ["System.out.printin('Hello World')", "printing ('Hello World')", "document.write('Hello World')" , "respond.write('Hello World')"],
         answer: "document.write('Hello World')"
     },
     {
@@ -11,8 +11,8 @@ var questions = [
     },
     {
         title: "What are variables used for in Javascript Programs?",
-        choices: ["Storing numbers, dates ,or other values", "varying randomly", "Causing high-school algebra flashbacks", "None of the above"],
-        answer: "Storing numbers,dates, or other values"
+        choices: ["Storing numbers, dates, or other values", "varying randomly", "Causing high-school algebra flashbacks", "None of the above"],
+        answer: "Storing numbers, dates, or other values"
     },
     {
         title: "Which of the following are capabilities of functions in JavaScript?",
@@ -60,7 +60,6 @@ begin.addEventListener("click", function () {
                 timer.textContent = "Time's up!";
             }
 
-        
         }, 1000);
     }
     render(questionIndex);
@@ -96,7 +95,7 @@ function compare(event) {
         var created = document.createElement("div");
         created.setAttribute("id", "created");
 
-        if (element.textContent == questions[questionIndex].answer) {
+        if (element.textContent == questions[questionIndex].answer) { 
             score++;
             created.textContent = "Correct the answer is: " + questions[questionIndex].answer;
 
@@ -118,7 +117,6 @@ function compare(event) {
     }
     questionnaire.appendChild(created);
 
-
 }
 
 function allDone() {
@@ -126,10 +124,10 @@ function allDone() {
     timer.inmnerHTML ="";
     //header
     var header = document.createElement("h1");
-    header.setAttribute("id", "h1");
+    header.setAttribute("id", "header");
     header.textContent = "Finish!"
 
-    questionnaire.appendChild(h1);
+    questionnaire.appendChild(header);
 
     var createP = document.createElement("p");
     createP.setAttribute("id", "createP");
@@ -149,7 +147,7 @@ function allDone() {
 
     var labelCreated = document.createElement("label");
     labelCreated.setAttribute("id", "labelCreated");
-    labelCreated.textContent = "Enter your initials:";
+    labelCreated.textContent = "Enter your initials: ";
 
     questionnaire.appendChild(labelCreated);
 
@@ -161,8 +159,9 @@ function allDone() {
 
     questionnaire.appendChild(inputCreated);
 
+   
     var submitCreated = document.createElement("button");
-    submitCreated.setAttribute("type", "Submit");
+    submitCreated.setAttribute("type", "submit");
     submitCreated.setAttribute("id", "Submit");
     submitCreated.textContent = "Submit";
 
@@ -181,53 +180,17 @@ function allDone() {
                 score: remainingTime
             }
             console.log(scoreFinal);
-            var scores = localStorage.getItem("scores");
-            if (scores === null) {
-                scores = [];
+            var cuentaToda = localStorage.getItem("cuentaToda");
+            if (cuentaToda === null) {
+                cuentaToda = [];
             } else {
-                scores = JSON.parse(scores);
+                cuentaToda = JSON.parse(cuentaToda);
             }
-            scores.push(scoreFinal);
-            var scoreNew = JSON.parse.strintify(scores);
-            localStorage.setItem("scores". scoreNew);
+            cuentaToda.push(scoreFinal);
+            var newScore = JSON.strintify(cuentaToda);
+            localStorage.setItem("cuentaToda", newScore);
             //travels to final pagel
-            window.location.replace("");
+            window.location.replace("score.html");
         }
     });
 }
-//var startQuiz = function () {
-  //  var intervalID = setInterval(displayCountdown, 1000);
-//
-  //  setTimeout (() => {
-    //    clearInterval(intervalID);
-
-
-
-    //}, (1000 * (countdownValue + 1)));
-//}
-
-
-
-
-
-//function displayCountdown() {
-   // if(countdownValue >= 0) {
-     //   countdown.innerHTML = countdownValue;
-       // countdownValue--;
-    //}else{
-      //  return 0;
-    //}
-//}
-///
-//var answerQuizHandler = function (e) {
-
-
-    //var isCorrect = e.target.getAttribute();
-   // if (isCorrect == "true") {
-
-    //} else {
- //  countdownValue -= 15;
-   //
-//}
-//}
-

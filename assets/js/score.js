@@ -8,15 +8,15 @@ clear.addEventListener("click", function () {
     location.reload();
 });
 // Retreives local stroage 
-var allScores = localStorage.getItem("allScores");
-allScores = JSON.parse(allScores);
+var tollAll = localStorage.getItem("tollAll");
+tollAll = JSON.parse(tollAll);
 
-if (allScores !== null) {
+if (tollAll !== null) {
 
-    for (var i = 0; i < allScores.length; i++) {
+    for (var i = 0; i < tollAll.length; i++) {
 
         var createLi = document.createElement("li");
-        createLi.textContent = allScores[i].initials + " " + allScores[i].score;
+        createLi.textContent = tollAll[i].initials + " " + tollAll[i].score;
         scores.appendChild(createLi);
 
     }
