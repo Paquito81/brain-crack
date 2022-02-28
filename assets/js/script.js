@@ -46,17 +46,6 @@ var penalty = 10
 var ulCreate = document.createElement("ul");
 
 
-var startQuiz = function () {
-    var intervalID = setInterval(displayCountdown, 1000);
-
-    setTimeout (() => {
-        clearInterval(intervalID);
-
-
-
-    }, (1000 * (countdownValue + 1)));
-}
-
 //button to trigger timer
 begin.addEventListener("click", function () {
     if (interval === 0) {
@@ -77,25 +66,106 @@ begin.addEventListener("click", function () {
 
 });
 
-
-
-function displayCountdown() {
-    if(countdownValue >= 0) {
-        countdown.innerHTML = countdownValue;
-        countdownValue--;
-    }else{
-        return 0;
+function render(questionIndex) {
+    questionnaire.innerHTML = "";
+    ulCreate.innerHTML = "";
+    //loop all the info in array
+    for (var i = 0; i < questions.length; i++) {
+        var userQuestion = questions[questionIndex].title;
+        var userChoices = questions[questionIndex].choices;
+        questionnaire.textContent = userQuestion;
     }
+
+    userChoices.forEach(function (newItem) {
+        var itemList = document.createElement("li");
+        itemList.textContent = newItem;
+        questionnaire.appendChild(ulCreate);
+        ulCreate.appendChild(itemList);
+        itemList.addEventListener("click", (compare));
+
+
+    })
 }
 
-var answerQuizHandler = function (e) {
+function compare(event) {
+    var element = event.target;
 
+    if (element.matches("li")) {
 
-    var isCorrect = e.target.getAttribute();
-    if (isCorrect == "true") {
+        var created = document.createElement("div");
+        created.setAttribute("id", "created");
 
+        if (element.textContent == questions[questionIndex].answer) {
+            score++;
+            created.textContent = "Correct the answer is: " + questions[questionIndex].answer;
+
+        } else {
+            //Will deduct -5 second off seconds left
+            seconds = seconds - penalty;
+            created.textContent = "Wrong The correct answer if: " + questions[questionIndex].answer;
+        }
+    }
+
+    //questionIndex determines what question user on
+    questionIndex++;
+
+    if (questionIndex >= questions.length) {
+        allDone();
+        created.textContent = "End of quiz!" + "" + "You got " + score + "/" + questions.length + "Correct!";
     } else {
-        countdownValue -= 15;
+        render(questionIndex);
     }
+    questionnaire.appendChild(created);
+
+
 }
+
+function allDone() {
+    questionnaire.innerHTML ="";
+    timer.inmnerHTML ="";
+    //header
+    var header = document.createElement("h1");
+    header.setAttribute("id", "h1");
+    header.textContent = "Finish!"
+
+    questionnaire.appendChild(h1);
+
+    //paragraph
+
+}
+//var startQuiz = function () {
+  //  var intervalID = setInterval(displayCountdown, 1000);
+//
+  //  setTimeout (() => {
+    //    clearInterval(intervalID);
+
+
+
+    //}, (1000 * (countdownValue + 1)));
+//}
+
+
+
+
+
+//function displayCountdown() {
+   // if(countdownValue >= 0) {
+     //   countdown.innerHTML = countdownValue;
+       // countdownValue--;
+    //}else{
+      //  return 0;
+    //}
+//}
+///
+//var answerQuizHandler = function (e) {
+
+
+    //var isCorrect = e.target.getAttribute();
+   // if (isCorrect == "true") {
+
+    //} else {
+ //  countdownValue -= 15;
+   //
+//}
+//}
 
