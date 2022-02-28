@@ -19,3 +19,6 @@ Submit buttom saves initials and score to local storage
 <img width="1440" alt="Screen Shot 2022-02-28 at 4 27 48 AM" src="https://user-images.githubusercontent.com/95262020/155975905-f6a9775e-d2ce-483e-9864-0611f57ceb02.png">
 <img width="1440" alt="Screen Shot 2022-02-28 at 4 28 08 AM" src="https://user-images.githubusercontent.com/95262020/155975948-447d4c57-2aab-4b14-bdab-ea6b07534719.png">
 <img width="1440" alt="Screen Shot 2022-02-28 at 4 28 26 AM" src="https://user-images.githubusercontent.com/95262020/155975984-829e03f5-effe-4cf7-a686-5965d7b3737a.png">
+https://paquito81.github.io/brain-crack/
+https://github.com/Paquito81/brain-crack.git
+git@github.com:Paquito81/brain-crack.git
